@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recipe Explorer</h1>
+        </header>
+        
+        <div class="controls">
+            <div class="filters">
+                <div class="filter-group">
+                    <input type="text" id="title-filter" placeholder="Filter by title...">
+                    <input type="text" id="cuisine-filter" placeholder="Filter by cuisine...">
+                    <input type="number" id="rating-filter" placeholder="Min rating..." min="1" max="5" step="0.1">
+                    <input type="number" id="time-filter" placeholder="Max total time..." min="5">
+                    <input type="number" id="calories-filter" placeholder="Max calories...">
+                    <button id="apply-filters">Apply Filters</button>
+                    <button id="clear-filters">Clear</button>
+                </div>
+            </div>
+            
+            <div class="pagination-controls">
+                <div class="results-per-page">
+                    <label for="limit-select">Results per page:</label>
+                    <select id="limit-select">
+                        <option value="15">15</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div class="sort-controls">
+                    <label for="sort-field">Sort by:</label>
+                    <select id="sort-field">
+                        <option value="rating">Rating</option>
+                        <option value="total_time">Total Time</option>
+                        <option value="cook_time">Cook Time</option>
+                        <option value="prep_time">Prep Time</option>
+                    </select>
+                    <select id="sort-order">
+                        <option value="desc">Descending</option>
+                        <option value="asc">Ascending</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="recipes-container">
+            <table id="recipes-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Cuisine</th>
+                        <th>Rating</th>
+                        <th>Total Time</th>
+                        <th>Serves</th>
+                    </tr>
+                </thead>
+                <tbody id="recipes-body">
+                    <!-- Recipes will be loaded here -->
+                </tbody>
+            </table>
+            
+            <div id="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading recipes...</p>
+            </div>
+            
+            <div id="empty-state" class="hidden">
+                <div class="empty-state-content">
+                 
+                    <h2>No recipes found</h2>
+                    <p>Try adjusting your filters or search criteria.</p>
+                </div>
+            </div>
+            
+            <div id="error-state" class="hidden">
+                <div class="empty-state-content">
+                    <i class="fas fa-exclamation-triangle empty-icon"></i>
+                    <h2>Something went wrong</h2>
+                    <p>We couldn't load the recipes. Please try again later.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <button id="prev-page" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+            <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+            <button id="next-page">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    
+    <div id="detail-drawer" class="drawer">
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h2 id="drawer-title">Recipe Title</h2>
+                <span id="drawer-cuisine" class="cuisine-tag">Cuisine</span>
+                <button id="close-drawer"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="drawer-body">
+                <div class="recipe-detail-section">
+                    <div class="detail-row">
+                        <div class="detail-label">Description:</div>
+                        <div id="recipe-description" class="detail-value"></div>
+                    </div>
+                    
+                    <div class="detail-row time-section">
+                        <div class="detail-label">Total Time:</div>
+                        <div class="detail-value">
+                            <span id="recipe-total-time"></span>
+                            <button id="expand-time" class="expand-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="expanded-time" class="expanded-section hidden">
+                        <div class="detail-row">
+                            <div class="detail-label">Prep Time:</div>
+                            <div id="recipe-prep-time" class="detail-value"></div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Cook Time:</div>
+                            <div id="recipe-cook-time" class="detail-value"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Serves:</div>
+                        <div id="recipe-serves" class="detail-value"></div>
+                    </div>
+                </div>
+                
+                <div class="nutrition-section">
+                    <h3>Nutrition Facts</h3>
+                    <table class="nutrition-table">
+                        <tbody id="nutrition-body">
+                            <!-- Nutrition details will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
