@@ -75,35 +75,7 @@ Or use ReDoc:
 
 http://127.0.0.1:8000/redoc
 
-📁 Project Structure
-
-securin-recipe/
-│
-├── alembic/                 # Alembic migrations
-├── app/
-│   ├── __init__.py
-|   |__ api/
-|   |__
-│   ├── main.py              # FastAPI application
-│   ├── models/              # SQLAlchemy models
-│   ├── schemas/             # Pydantic schemas
-│   ├── routes/              # API routes
-│   └── database.py          # DB connection
-│
-├── .env                     # Environment variables
-├── alembic.ini              # Alembic config
-├── requirements.txt         # Python dependencies
-└── README.md                # You're reading it!
 
 
 
-
-
-🧑‍💻 Author
-
-Sakthisree Moliyan VelGitHub: @Sakthisree-26
-
-📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
