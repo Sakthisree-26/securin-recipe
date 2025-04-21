@@ -85,7 +85,7 @@ def search_recipes(db: Session, filters: dict):
             except ValueError:
                 print(f"Invalid total_time filter format: {cond}")
 
-    """if 'calories' in filters:
+    if 'calories' in filters:
      for cond in filters['calories'].split(","):
         try:
             op, value = cond.split(":")
@@ -99,27 +99,9 @@ def search_recipes(db: Session, filters: dict):
             else:
                 print(f"Invalid calories operator: {op}")
         except ValueError:
-            print(f"Invalid calories filter format: {cond}")"""
+            print(f"Invalid calories filter format: {cond}")
     
-    if 'calories' in filters:
-        for cond in filters['calories'].split(","):
-            try:
-                op, value = cond.split(":")
-                value = float(value)
-                print(f"Filtering calories with condition: {op} {value}")
-                if op == "gte":
-                    query = query.filter(
-                        cast(Recipe.nutrients["calories"].astext, Float) >= value
-                    )
-                elif op == "lte":
-                    query = query.filter(
-                        cast(Recipe.nutrients["calories"].astext, Float) <= value
-                    )
-                else:
-                    print(f"Invalid calories operator: {op}")
-            except ValueError:
-                print(f"Invalid calories filter format: {cond}")
-
+   
 
     total = query.count()
     print(f"Total records found: {total}")
