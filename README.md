@@ -79,7 +79,8 @@ recipe-explorer/
 2. Create and activate virtual environment
    ```bash
    python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   source .venv/bin/activate #Mac
+   .venv\Scripts\activate  # On Windows: 
    ```
 
 3. Install dependencies
