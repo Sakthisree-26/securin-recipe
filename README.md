@@ -4,6 +4,7 @@
 
 Recipe Explorer is a full-stack web application that allows users to browse, search, and filter recipes from a database. The application features a responsive UI with sorting, pagination, and detailed recipe views.
 
+Detailed Documentation Link - https://docs.google.com/document/d/1cUKnjppWbUrAg1tYPQ252JvMGMw-fm23bplrYKiypu0/edit?tab=t.0
 
 ## Project Structure
 
