@@ -72,8 +72,8 @@ recipe-explorer/
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/recipe-explorer.git
-   cd recipe-explorer
+   git clone https://github.com/Sakthisree-26/securin-recipe.git
+   cd securin_recipe
    ```
 
 2. Create and activate virtual environment
